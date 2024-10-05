@@ -4,6 +4,8 @@ import logging
 from aiogram import Bot, Dispatcher
 
 from src.config import load_config
+from src.handler import user
+
 
 logger = logging.getLogger(__name__)
 
@@ -24,6 +26,9 @@ async def main():
     # сам бот и роутер
     bot = Bot(config.tg_bot.token)
     dp = Dispatcher()
+
+    # добавление дочерних роутеров
+    dp.include_router(router=user.router)
 
     await bot.delete_webhook(drop_pending_updates=True) # Удаление прошлых не обработанных событий
     await dp.start_polling(bot) # Пуск бота
