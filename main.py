@@ -6,6 +6,8 @@ from aiogram import Bot, Dispatcher
 
 from src.database.config import create_db, drop_db
 from src.config import load_config
+from src.handler import user
+
 
 logger = logging.getLogger(__name__)
 
@@ -39,6 +41,10 @@ async def main():
     
     logger.info("Bot is starting")
 
+    # добавление дочерних роутеров
+    dp.include_router(router=user.router)
+
+    await bot.delete_webhook(drop_pending_updates=True) # Удаление прошлых не обработанных событий
     # await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot) # Пуск бота
 
