@@ -7,7 +7,7 @@
 
 Склонируйте репозиторий:
 ```bash
-git clone https://github.com/username/repository.git
+git clone https://github.com/barcek2281/bda2369.git
 ```
 
 Перейдите в папку проекта:
