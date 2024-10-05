@@ -1,6 +1,10 @@
 .env
 .venv
 .git
+.vscode
+.idea
 
 __pycache__
 __pylance__
+config.cpython-312.pyc
+config.cpython-312.pyc
